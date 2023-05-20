@@ -1,6 +1,6 @@
 # Cinnamon_Cultivation_Development_Application
 ITPM_Project_3Y2S_SLIIT
-We are using MERN stack technology.
+&nbsp; We are using MERN stack technology.
 
 Cinnamon trade in Sri Lanka is an annual profitable business. Hence, many farmers have turned to cinnamon cultivation.  But can they get a fair return here?  Is it profitable enough?  Is there any way they can get help, especially during financial hardship?  These kinds of problems are the problems faced by many farmers today. When you think about it, if the businessmen who buy products from the cinnamon plantation owners and the cinnamon plantation owners can choose deals that suit each other's needs, it is beneficial for both parties. Often, farmers are used to selling their yields where they are used to and being satisfied with the money they get. But if they find a cinnamon trade company who can get more profit than that, they decide to sell their crop to him. This increases competition among cinnamon trading companies in the business world.  At the same time, the labor of the cinnamon Estate owners gets a suitable value. The most special thing is that in view of the current situation in Sri Lanka, everyone may have financial difficulties in running their business and agricultural activities. It is a big advantage for cinnamon farmers if they can get the loan at a lower rate of interest and reduce the time and effort involved. The web application we are designing here has a mechanism to reduce the difficulty of getting a loan from a bank for the cinnamon plantation owner. 
 
