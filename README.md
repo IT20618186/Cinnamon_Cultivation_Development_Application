@@ -11,5 +11,5 @@ The web application we are designing here has a mechanism to reduce the difficul
 Four Functions.
 1. Diseases Of Cinnamon                              - IT 20617714
 2. State Owner Registration & Harvest Management     - IT 20271282
-3. Company Handeling                                 - IT 20618186
-4. Help Center                                       - IT 20603540
+3. Help Center                                       - IT 20618186
+4. Company Handeling                                 - IT 20603540
