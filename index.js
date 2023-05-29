@@ -44,6 +44,7 @@ app.use("/bank", require("./routes/Banks"));
 app.use("/contact", require("./routes/Contacts"));
 app.use("/LoanApply", require("./routes/LoanApplyForm"));
 app.use("/VSO", require("./routes/VillageServiceOfficer"));
+app.use("/api", require("./routes/Company_req"));
 
 const port = process.env.PORT || 8100;
 

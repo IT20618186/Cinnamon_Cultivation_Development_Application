@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 
-const companySchema = new mongoose.Schema({
+const companySchema = mongoose.Schema({
 
-    C_req_ID:{
+    c_req_ID:{
         type :String,
         required:true
     },
-    C_name:{
+    c_name:{
         type :String,
         required :true
     },
-    C_location:{
+    c_location:{
         type :String,
         required :true
     },
@@ -18,14 +18,19 @@ const companySchema = new mongoose.Schema({
         type :String,
         required :true
     },
-    Cinnamon_grade:{
+    cinnamon_grade:{
         type :String
     },
-    Date:{
-        type :Date,
+    companyMobile: {
+        type: String,
+        maxlength: 10,
+        minlength: 9,
+        required: [true, "A Company must have contact number"]
+    },
+    date:{
+        type :String,
         required :true
     }
-})
+});
 
-
-module.exports = mongoose.model('company_requirement',companySchema)
+module.exports = mongoose.model('companyRequirements',companySchema);

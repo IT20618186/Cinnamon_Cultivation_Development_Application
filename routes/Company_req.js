@@ -1,13 +1,30 @@
-const express = require("express");
-const Company_req = require("../models/Company_req");
+const express = require('express');
+const CompanyReqs = require("../models/Company_req");
 
 const router = express.Router();
 
+
 //save company requirement 
 
-router.post('/company/save', (req, res)=>{
+router.post('/company/save', (req,res) => {
 
-    let newCompany_req = new Company_req(req.body);
+    const c_req_ID = req.body.c_req_ID;
+    const c_name = req.body.c_name;
+    const c_location = req.body.c_location;
+    const requirement = req.body.requirement;
+    const cinnamon_grade = req.body.cinnamon_grade;
+    const companyMobile = req.body.companyMobile;
+    const date = req.body.date;
+
+    const newCompany_req = new CompanyReqs({
+        c_req_ID,
+        c_name,
+        c_location,
+        requirement,
+        cinnamon_grade,
+        companyMobile,
+        date
+    });
 
     newCompany_req.save((err)=>{
         if(err){
@@ -21,10 +38,11 @@ router.post('/company/save', (req, res)=>{
     });
 });
 
+
 //Get company requirements
 
 router.get('/company/view', (req, res)=>{
-    Company_req.find().exec((err,company_reqs)=>{
+    CompanyReqs.find().exec((err,CompanyReqs)=>{
         if(err){
             return res.status(400).json({
                 error:err
@@ -32,7 +50,25 @@ router.get('/company/view', (req, res)=>{
         }
         return res.status(200).json({
             success:true,
-            existingCompany_req:company_reqs
+            existingCompanyReqs: CompanyReqs
+        });
+    });
+});
+
+
+// Get a Specific Information of One by One 
+
+router.get('company/:id', (req,res) => {
+
+    let c_req_ID = req.params.id;
+
+    CompanyReqs.findById(c_req_ID,(err,CompanyReq) =>{
+        if(err){
+            return res.status(400).json({success:false, err});
+        }
+        return res.status(200).json({
+            success:true,
+            CompanyReq
         });
     });
 });
@@ -40,34 +76,41 @@ router.get('/company/view', (req, res)=>{
 
 //Update company requirements
 router.patch('/company/update/:id',(req,res)=>{
-    Company_req.findByIdAndUpdate(
+
+    CompanyReqs.findByIdAndUpdate(
         req.params.id,
         {
             $set:req.body
         },
-        (err,Company_req)=>{
+        (err,CompanyReqs)=>{
             if(err){
-                return res.status(400).json({error:err})
+                return res.status(400).json({error:err});
             }
             return res.status(200).json({
-                success:"Updated company requirement successfully" 
+                success:"Updated company requirement successfully.",
+                existingCompanyReqs: CompanyReqs 
             });
         }
     );
-})
+});
+
 
 //Delete company requirement
+
 router.delete('/company/delete/:id',(req,res)=>{
-    Company_req.findByIdAndRemove(req.params.id).exec((err,deleteCompany_req)=>{
+    CompanyReqs.findByIdAndRemove(req.params.id).exec((err, deleteCompanyReq)=>{
         
-        if(err) return res.status(400).json({
-            message:"deleted unsuccessful",err
+        if(err){
+            return res.status(400).json({
+                message:"Deleted Unsuccessful",
+                err
+            });
+        } 
+        return res.status(200).json({
+            message:"deleted successfully.",
+            deleteCompanyReq
         });
-
-        return res.json({
-            message:"deleted successful",deleteCompany_req
-        });
-
     });
 }); 
 
+module.exports = router;
